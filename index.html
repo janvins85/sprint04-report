@@ -3,82 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprint 04 - Dotahovani Q1 | Prehled hodin</title>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f4f8; color: #2d3748; }
+<title>Sprint Report | 04 - Dotahovani Q1</title>
+<style>* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Segoe UI, system-ui, sans-serif; background: #f0f4f8; color: #2d3748; }
 .header { background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%); color: white; padding: 32px 40px; }
-.header h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
-.header .subtitle { font-size: 14px; opacity: 0.8; }
-.header .sprint-info { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
-.header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 13px; }
-.container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
-.summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
-.summary-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-top: 4px solid; }
-.person-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white; flex-shrink: 0; }
-.person-name { font-weight: 600; font-size: 15px; }
-.item-count { font-size: 12px; color: #718096; }
-.hours-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f7fafc; }
-.hours-label { font-size: 12px; color: #718096; }
-.hours-value { font-weight: 600; font-size: 15px; }
-.completed { color: #38a169; }
-.estimated { color: #3182ce; }
-.remaining { color: #e53e3e; }
-.progress-wrap { margin-top: 12px; }
-.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: #718096; margin-bottom: 4px; }
-.progress-bar { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+.header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.header .subtitle { font-size: 13px; opacity: 0.8; }
+.header .sprint-info { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+.header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 28px 20px; }
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 14px; margin-bottom: 28px; }
+.summary-card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.1); border-top: 4px solid; }
+.person-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: white; flex-shrink: 0; }
+.person-name { font-weight: 600; font-size: 14px; }
+.item-count { font-size: 11px; color: #718096; }
+.hours-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #f7fafc; }
+.hours-label { font-size: 11px; color: #718096; }
+.hours-value { font-weight: 600; font-size: 14px; }
+.completed { color: #38a169; } .estimated { color: #3182ce; } .remaining { color: #e53e3e; }
+.progress-wrap { margin-top: 10px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 10px; color: #718096; margin-bottom: 3px; }
+.progress-bar { height: 5px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 3px; }
-.total-bar { background: white; border-radius: 12px; padding: 24px 28px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-.total-bar h2 { font-size: 16px; font-weight: 600; color: #4a5568; min-width: 160px; }
+.total-bar { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.1); display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.total-bar h2 { font-size: 14px; font-weight: 600; color: #4a5568; min-width: 130px; }
 .total-stat { text-align: center; }
-.total-stat .num { font-size: 28px; font-weight: 700; }
-.total-stat .lbl { font-size: 12px; color: #718096; margin-top: 2px; }
-.divider { width: 1px; height: 48px; background: #e2e8f0; }
-.person-section { background: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; }
-.person-section-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }
-.person-section-header h2 { font-size: 18px; font-weight: 600; flex: 1; }
-.stat-pill { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 600; }
-.stat-pill.green { background: #f0fff4; border-color: #9ae6b4; color: #276749; }
-.stat-pill.blue { background: #ebf8ff; border-color: #90cdf4; color: #2c5282; }
-.stat-pill.red { background: #fff5f5; border-color: #feb2b2; color: #9b2c2c; }
+.total-stat .num { font-size: 26px; font-weight: 700; }
+.total-stat .lbl { font-size: 11px; color: #718096; margin-top: 2px; }
+.divider { width: 1px; height: 44px; background: #e2e8f0; }
+.person-section { background: white; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.1); overflow: hidden; }
+.person-section-header { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }
+.person-section-header h2 { font-size: 17px; font-weight: 600; flex: 1; }
+.stat-pill { border-radius: 20px; padding: 3px 10px; font-size: 12px; font-weight: 600; }
+.stat-pill.green { background: #f0fff4; border: 1px solid #9ae6b4; color: #276749; }
+.stat-pill.blue { background: #ebf8ff; border: 1px solid #90cdf4; color: #2c5282; }
+.stat-pill.red { background: #fff5f5; border: 1px solid #feb2b2; color: #9b2c2c; }
 table { width: 100%; border-collapse: collapse; }
-th { text-align: left; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #718096; background: #f7fafc; border-bottom: 1px solid #e2e8f0; }
-td { padding: 11px 16px; font-size: 13px; border-bottom: 1px solid #f0f4f8; vertical-align: middle; }
+th { text-align: left; padding: 9px 14px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #718096; background: #f7fafc; border-bottom: 1px solid #e2e8f0; }
+td { padding: 10px 14px; font-size: 12px; border-bottom: 1px solid #f0f4f8; vertical-align: middle; }
 tr:hover td { background: #f7fafc; }
-.item-id { color: #718096; font-size: 12px; font-family: monospace; }
-.type-badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-.type-Task { background: #ebf8ff; color: #2c5282; }
-.type-Bug { background: #fff5f5; color: #9b2c2c; }
-.state-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
-.state-Resolved { background: #c6f6d5; color: #22543d; }
-.state-Closed { background: #e2e8f0; color: #4a5568; }
-.state-Active { background: #bee3f8; color: #2a4365; }
-.state-New { background: #fefcbf; color: #744210; }
+.item-id { color: #718096; font-size: 11px; font-family: monospace; }
+.type-badge { display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+.type-Task { background: #ebf8ff; color: #2c5282; } .type-Bug { background: #fff5f5; color: #9b2c2c; } .type-Story { background: #f0fff4; color: #276749; }
+.state-badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+.state-Resolved { background: #c6f6d5; color: #22543d; } .state-Closed { background: #e2e8f0; color: #4a5568; }
+.state-Active { background: #bee3f8; color: #2a4365; } .state-New { background: #fefcbf; color: #744210; }
 td.num { text-align: right; font-weight: 600; }
 td.num.zero { color: #cbd5e0; font-weight: 400; }
 tfoot td { font-weight: 700; background: #f7fafc; border-top: 2px solid #e2e8f0; }
-.no-hours { padding: 20px 24px; font-size: 13px; color: #718096; font-style: italic; }
-.bar-chart-section { padding: 24px; }
-.legend { display: flex; gap: 16px; margin-bottom: 20px; }
-.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
-.legend-dot { width: 12px; height: 12px; border-radius: 2px; }
-.bar-chart { display: flex; flex-direction: column; gap: 12px; }
-.bar-row { display: flex; align-items: center; gap: 12px; }
-.bar-person { width: 140px; font-size: 13px; font-weight: 600; text-align: right; flex-shrink: 0; }
-.bar-wrap { flex: 1; display: flex; gap: 3px; height: 26px; }
-.bar-seg { height: 26px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: white; font-weight: 600; overflow: hidden; white-space: nowrap; padding: 0 6px; }
-.bar-label { width: 90px; font-size: 12px; color: #718096; flex-shrink: 0; }
-</style>
+.no-hours { padding: 14px 22px; font-size: 12px; color: #718096; font-style: italic; }
+.footer { text-align: center; padding: 20px; font-size: 11px; color: #a0aec0; }</style>
 </head>
 <body>
 <div class="header">
-  <h1>Sprint 04 - Dotahovani Q1</h1>
+  <h1>Sprint Report - 04 - Dotahovani Q1</h1>
   <div class="subtitle">PowerApps 2026 - CentralniSystem - Azure DevOps</div>
   <div class="sprint-info">
-    <span class="badge">23. brezna - 3. dubna 2026</span>
-    <span class="badge">3 work days remaining</span>
     <span class="badge">171 polozek celkem</span>
+    <span class="badge">Aktualizovano: 2. dubna 2026</span>
   </div>
 </div>
 <div class="container">
@@ -86,138 +69,369 @@ tfoot td { font-weight: 700; background: #f7fafc; border-top: 2px solid #e2e8f0;
     <h2>Celkovy prehled</h2>
     <div class="total-stat"><div class="num" style="color:#3182ce">106.25</div><div class="lbl">Odhadovane h</div></div>
     <div class="divider"></div>
-    <div class="total-stat"><div class="num" style="color:#38a169">71.02</div><div class="lbl">Odpracovane h</div></div>
+    <div class="total-stat"><div class="num" style="color:#38a169">79.02</div><div class="lbl">Odpracovane h</div></div>
     <div class="divider"></div>
     <div class="total-stat"><div class="num" style="color:#e53e3e">10</div><div class="lbl">Zbyvajici h</div></div>
     <div class="divider"></div>
     <div class="total-stat"><div class="num" style="color:#805ad5">4</div><div class="lbl">Lide v tymu</div></div>
   </div>
   <div class="summary-grid">
-    <div class="summary-card" style="border-top-color:#4A90D9">
-      <div class="person-header"><div class="avatar" style="background:#4A90D9">KR</div><div><div class="person-name">Kocsis Richard</div><div class="item-count">41 polozek</div></div></div>
-      <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">51.75 h</span></div>
-      <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">54.27 h</span></div>
-      <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value" style="color:#a0aec0">0 h</span></div>
-      <div class="progress-wrap"><div class="progress-label"><span>Plneni</span><span>105%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#4A90D9"></div></div></div>
-    </div>
-    <div class="summary-card" style="border-top-color:#E67E22">
-      <div class="person-header"><div class="avatar" style="background:#E67E22">NP</div><div><div class="person-name">Novak Pavel</div><div class="item-count">38 polozek</div></div></div>
-      <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">54 h</span></div>
-      <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">16.25 h</span></div>
-      <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value remaining">10 h</span></div>
-      <div class="progress-wrap"><div class="progress-label"><span>Plneni</span><span>30%</span></div><div class="progress-bar"><div class="progress-fill" style="width:30%;background:#E67E22"></div></div></div>
-    </div>
-    <div class="summary-card" style="border-top-color:#27AE60">
-      <div class="person-header"><div class="avatar" style="background:#27AE60">VJ</div><div><div class="person-name">Vins Jan</div><div class="item-count">72 polozek</div></div></div>
-      <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">0.5 h</span></div>
-      <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">0.5 h</span></div>
-      <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value" style="color:#a0aec0">0 h</span></div>
-      <div class="progress-wrap"><div class="progress-label"><span>Plneni</span><span>100%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#27AE60"></div></div></div>
-    </div>
-    <div class="summary-card" style="border-top-color:#9B59B6">
-      <div class="person-header"><div class="avatar" style="background:#9B59B6">SM</div><div><div class="person-name">Svitak Martin</div><div class="item-count">11 polozek</div></div></div>
-      <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value" style="color:#a0aec0">-- h</span></div>
-      <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value" style="color:#a0aec0">-- h</span></div>
-      <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value" style="color:#a0aec0">-- h</span></div>
-      <div class="progress-wrap"><div class="progress-label"><span>Plneni</span><span>-</span></div><div class="progress-bar"><div class="progress-fill" style="width:0%;background:#9B59B6"></div></div></div>
-    </div>
+<div class="summary-card" style="border-top-color:#4A90D9">
+  <div class="person-header">
+    <div class="avatar" style="background:#4A90D9">KR</div>
+    <div><div class="person-name">Kocsis Richard</div><div class="item-count">41 polozek</div></div>
   </div>
-  <div class="person-section" style="margin-bottom:32px">
-    <div class="person-section-header"><h2>Vizualni srovnani hodin</h2></div>
-    <div class="bar-chart-section">
-      <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#93c5fd"></div>Odhadovane hodiny</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#34d399"></div>Odpracovane hodiny</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Zbyvajici hodiny</div>
-      </div>
-      <div class="bar-chart">
-        <div class="bar-row"><div class="bar-person" style="color:#4A90D9">Kocsis Richard</div><div class="bar-wrap"><div class="bar-seg" style="width:86%;background:#93c5fd">51.75 h</div></div><div class="bar-label">odhadovano</div></div>
-        <div class="bar-row"><div class="bar-person"></div><div class="bar-wrap"><div class="bar-seg" style="width:90%;background:#34d399">54.27 h OK</div></div><div class="bar-label" style="color:#38a169">splneno 105%</div></div>
-        <div style="height:6px"></div>
-        <div class="bar-row"><div class="bar-person" style="color:#E67E22">Novak Pavel</div><div class="bar-wrap"><div class="bar-seg" style="width:90%;background:#93c5fd">54 h</div></div><div class="bar-label">odhadovano</div></div>
-        <div class="bar-row"><div class="bar-person"></div><div class="bar-wrap"><div class="bar-seg" style="width:27%;background:#34d399;min-width:50px">16.25 h</div><div class="bar-seg" style="width:17%;background:#f87171;min-width:40px">10 h</div></div><div class="bar-label" style="color:#e53e3e">30% + 10h rem.</div></div>
-        <div style="height:6px"></div>
-        <div class="bar-row"><div class="bar-person" style="color:#27AE60">Vins Jan</div><div class="bar-wrap"><div class="bar-seg" style="width:2%;background:#34d399;min-width:70px">0.5 h OK</div></div><div class="bar-label" style="color:#38a169">splneno 100%</div></div>
-        <div style="height:6px"></div>
-        <div class="bar-row"><div class="bar-person" style="color:#9B59B6">Svitak Martin</div><div class="bar-wrap"><div class="bar-seg" style="width:20%;background:#e2e8f0;color:#a0aec0">bez hodin</div></div><div class="bar-label">-</div></div>
-      </div>
-    </div>
+  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">51.75 h</span></div>
+  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">54.27 h</span></div>
+  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value ">0 h</span></div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Plneni</span><span>100%</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#4A90D9"></div></div>
   </div>
-  <div class="person-section">
-    <div class="person-section-header">
-      <div class="avatar" style="background:#4A90D9">KR</div><h2>Kocsis Richard</h2>
-      <span class="stat-pill blue">41 polozek</span>
-      <span class="stat-pill green">54.27 h odpracovano</span>
-      <span class="stat-pill blue">51.75 h odhadovano</span>
-    </div>
-    <table>
-      <thead><tr><th>ID</th><th>Nazev</th><th>Typ</th><th>Stav</th><th style="text-align:right">Odhad</th><th style="text-align:right">Splneno</th><th style="text-align:right">Zbyva</th></tr></thead>
-      <tbody>
-        <tr><td class="item-id">#1315</td><td>Schvaleni tiskoveho KV - Copy to Slovakia flow</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">4</td><td class="num completed">4</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1618</td><td>Prenastaveni uctovani halerovho vyrovnani</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">0.5</td><td class="num completed">0.5</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1656</td><td>Navision - karta Dodavatele</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">30</td><td class="num completed">45</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1678</td><td>Kurzovni rozdily Sk</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">2</td><td class="num completed">0.1</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1701</td><td>Upominky s cislem 1.</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">3</td><td class="num completed">3</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1705</td><td>Konzultace Richard - Sprint 04</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Active">Active</span></td><td class="num">11</td><td class="num zero">-</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1708</td><td>1) Vynulovani polozek k dodani v komisnim pytli</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">0.75</td><td class="num completed">1</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1714</td><td>7) Karta zbozi - zapsane predobjednavky</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">0.5</td><td class="num completed">0.67</td><td class="num zero">-</td></tr>
-      </tbody>
-      <tfoot><tr><td colspan="4">CELKEM (8 polozek s hodinami z 41)</td><td class="num">51.75</td><td class="num" style="color:#38a169">54.27</td><td class="num zero">0</td></tr></tfoot>
-    </table>
-    <div class="no-hours">Dalsich 33 polozek nema vyplnene hodiny.</div>
+</div>
+<div class="summary-card" style="border-top-color:#E67E22">
+  <div class="person-header">
+    <div class="avatar" style="background:#E67E22">NP</div>
+    <div><div class="person-name">Novák Pavel</div><div class="item-count">38 polozek</div></div>
   </div>
-  <div class="person-section">
-    <div class="person-section-header">
-      <div class="avatar" style="background:#E67E22">NP</div><h2>Novak Pavel</h2>
-      <span class="stat-pill blue">38 polozek</span>
-      <span class="stat-pill green">16.25 h odpracovano</span>
-      <span class="stat-pill red">10 h zbyva</span>
-    </div>
-    <table>
-      <thead><tr><th>ID</th><th>Nazev</th><th>Typ</th><th>Stav</th><th style="text-align:right">Odhad</th><th style="text-align:right">Splneno</th><th style="text-align:right">Zbyva</th></tr></thead>
-      <tbody>
-        <tr><td class="item-id">#980</td><td>01. Vytvoreni tabulky Zmena cen</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-New">New</span></td><td class="num">2</td><td class="num zero">-</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#981</td><td>03. Automaticky propis do tabulky zmena cen pri zmene na RR</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-New">New</span></td><td class="num">2.5</td><td class="num zero">-</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1122</td><td>Offboarding bez onboardingu</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-New">New</span></td><td class="num">4</td><td class="num zero">-</td><td class="num remaining">3</td></tr>
-        <tr><td class="item-id">#1136</td><td>Vlastnik employee musi byt dany user</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-New">New</span></td><td class="num">2</td><td class="num zero">-</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1262</td><td>Pridat identifikaci ZAKA jako automaticky toggle</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-New">New</span></td><td class="num">3</td><td class="num zero">-</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1303</td><td>Pridani novych poli do KV pro VTR</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-New">New</span></td><td class="num">1.5</td><td class="num zero">-</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1666</td><td>KL jen ke konzultaci - prihlaseny expres na RR</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Closed">Closed</span></td><td class="num">0.5</td><td class="num completed">0.5</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1685</td><td>Kalkulacni varianta KOMISE</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Closed">Closed</span></td><td class="num">2</td><td class="num completed">2</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1703</td><td>Konzultace Pavel - Sprint 04</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Active">Active</span></td><td class="num">16</td><td class="num completed">0.25</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1706</td><td>Dotazeni HR ke spusteni</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Active">Active</span></td><td class="num">14</td><td class="num completed">7</td><td class="num remaining">7</td></tr>
-        <tr><td class="item-id">#1723</td><td>RIc 15029 se neprihlasil na RR</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Closed">Closed</span></td><td class="num">0.5</td><td class="num completed">0.5</td><td class="num zero">-</td></tr>
-        <tr><td class="item-id">#1728</td><td>RR 24.3.2026</td><td><span class="type-badge type-Task">Task</span></td><td><span class="state-badge state-Closed">Closed</span></td><td class="num">6</td><td class="num completed">6</td><td class="num zero">-</td></tr>
-      </tbody>
-      <tfoot><tr><td colspan="4">CELKEM (12 polozek s hodinami z 38)</td><td class="num">54</td><td class="num" style="color:#38a169">16.25</td><td class="num" style="color:#e53e3e">10</td></tr></tfoot>
-    </table>
-    <div class="no-hours">Dalsich 26 polozek nema vyplnene hodiny.</div>
+  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">54 h</span></div>
+  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">16.25 h</span></div>
+  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value remaining">10 h</span></div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Plneni</span><span>30%</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:30%;background:#E67E22"></div></div>
   </div>
-  <div class="person-section">
-    <div class="person-section-header">
-      <div class="avatar" style="background:#27AE60">VJ</div><h2>Vins Jan</h2>
-      <span class="stat-pill blue">72 polozek</span>
-      <span class="stat-pill green">0.5 h odpracovano</span>
-    </div>
-    <table>
-      <thead><tr><th>ID</th><th>Nazev</th><th>Typ</th><th>Stav</th><th style="text-align:right">Odhad</th><th style="text-align:right">Splneno</th><th style="text-align:right">Zbyva</th></tr></thead>
-      <tbody>
-        <tr><td class="item-id">#1562</td><td>Chybne prirazena ISBN</td><td><span class="type-badge type-Bug">Bug</span></td><td><span class="state-badge state-Resolved">Resolved</span></td><td class="num">0.5</td><td class="num completed">0.5</td><td class="num zero">-</td></tr>
-      </tbody>
-      <tfoot><tr><td colspan="4">CELKEM (1 polozka s hodinami z 72)</td><td class="num">0.5</td><td class="num" style="color:#38a169">0.5</td><td class="num zero">0</td></tr></tfoot>
-    </table>
-    <div class="no-hours">Zbyvajicich 71 polozek nema vyplnene hodiny.</div>
+</div>
+<div class="summary-card" style="border-top-color:#27AE60">
+  <div class="person-header">
+    <div class="avatar" style="background:#27AE60">SM</div>
+    <div><div class="person-name">Sviták Martin</div><div class="item-count">11 polozek</div></div>
   </div>
-  <div class="person-section">
-    <div class="person-section-header">
-      <div class="avatar" style="background:#9B59B6">SM</div><h2>Svitak Martin</h2>
-      <span class="stat-pill blue">11 polozek</span>
-    </div>
-    <div class="no-hours">Vsechny polozky (11) nemaji vyplnene hodiny - zadne odhady ani odpracovany cas.</div>
+  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">0 h</span></div>
+  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">0 h</span></div>
+  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value ">0 h</span></div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Plneni</span><span>0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#27AE60"></div></div>
   </div>
-  <div style="text-align:center;padding:24px;font-size:12px;color:#a0aec0">
-    Vygenerovano z Azure DevOps - Sprint 04 - Dotahovani Q1 - 2. dubna 2026
+</div>
+<div class="summary-card" style="border-top-color:#9B59B6">
+  <div class="person-header">
+    <div class="avatar" style="background:#9B59B6">VJ</div>
+    <div><div class="person-name">Vinš Jan</div><div class="item-count">72 polozek</div></div>
   </div>
+  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">0.5 h</span></div>
+  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">8.5 h</span></div>
+  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value ">0 h</span></div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Plneni</span><span>100%</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#9B59B6"></div></div>
+  </div>
+</div>
+  </div>
+<div class="person-section">
+  <div class="person-section-header">
+    <div class="avatar" style="background:#4A90D9">KR</div>
+    <h2>Kocsis Richard</h2>
+    <span class="stat-pill blue">41 polozek</span>
+    <span class="stat-pill green">54.27 h odpracovano</span>
+
+  </div>
+<table>
+<thead><tr>
+  <th style="width:60px">ID</th><th>Nazev</th>
+  <th style="width:70px">Typ</th><th style="width:90px">Stav</th>
+  <th style="width:75px;text-align:right">Odhad</th>
+  <th style="width:85px;text-align:right">Splneno</th>
+  <th style="width:75px;text-align:right">Zbyva</th>
+</tr></thead>
+<tbody><tr>
+  <td class="item-id">#1315</td>
+  <td>Schválení tiskového KV upravit flow, aby spustilo &quot;Copy to Slovakia&quot;, pokud není...</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">4</td>
+  <td class="num completed">4</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1618</td>
+  <td>Přenastavení účtování haléřového vyrovnání</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">0.5</td>
+  <td class="num completed">0.5</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1656</td>
+  <td>Navision - karta &quot;Dodavatelé&quot;</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">30</td>
+  <td class="num completed">45</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1678</td>
+  <td>Kurzovní rozdíly Sk</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">2</td>
+  <td class="num completed">0.1</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1701</td>
+  <td>upomínky s číslem 1.</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">3</td>
+  <td class="num completed">3</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1705</td>
+  <td>Konzultace Richard - Sprint 04</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Active">Active</span></td>
+  <td class="num">11</td>
+  <td class="num zero">-</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1708</td>
+  <td>1) Vynulování položek k dodání v komisním pytli</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">0.75</td>
+  <td class="num completed">1</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1714</td>
+  <td>7) Karta zboží – zapsané předobjednávky</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">0.5</td>
+  <td class="num completed">0.67</td>
+  <td class="num zero">-</td>
+</tr></tbody>
+<tfoot><tr>
+  <td colspan="4" style="padding:12px 16px">CELKEM (8 polozek s hodinami z 41)</td>
+  <td class="num">51.75</td>
+  <td class="num" style="color:#38a169">54.27</td>
+  <td class="num" style="color:#e53e3e">-</td>
+</tr></tfoot>
+</table>
+  <div class="no-hours">33 polozek nema vyplnene hodiny.</div>
+</div>
+<div class="person-section">
+  <div class="person-section-header">
+    <div class="avatar" style="background:#E67E22">NP</div>
+    <h2>Novák Pavel</h2>
+    <span class="stat-pill blue">38 polozek</span>
+    <span class="stat-pill green">16.25 h odpracovano</span>
+    <span class="stat-pill red">10 h zbyva</span>
+  </div>
+<table>
+<thead><tr>
+  <th style="width:60px">ID</th><th>Nazev</th>
+  <th style="width:70px">Typ</th><th style="width:90px">Stav</th>
+  <th style="width:75px;text-align:right">Odhad</th>
+  <th style="width:85px;text-align:right">Splneno</th>
+  <th style="width:75px;text-align:right">Zbyva</th>
+</tr></thead>
+<tbody><tr>
+  <td class="item-id">#980</td>
+  <td>01. Vytvoření tabulky &quot;Změna cen&quot;</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">2</td>
+  <td class="num zero">-</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#981</td>
+  <td>03. Automaticky propis do tabulky změna cen při změně na RR</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">2.5</td>
+  <td class="num zero">-</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1122</td>
+  <td>Offboarding bez onboardingu</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">4</td>
+  <td class="num zero">-</td>
+  <td class="num remaining">3</td>
+</tr>
+<tr>
+  <td class="item-id">#1136</td>
+  <td>Vlastník employee musí být daný user - aby viděl sám sebe. Nutno přidat do nějak...</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">2</td>
+  <td class="num zero">-</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1262</td>
+  <td>Přidat identifikaci ZAKA jako automatický toggle dle hodnot.</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">3</td>
+  <td class="num zero">-</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1303</td>
+  <td>Přidání nových polí do KV pro VTR. Nebo zvážit zda spíše na projekt (závaznost t...</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">1.5</td>
+  <td class="num zero">-</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1666</td>
+  <td>KL jen ke konzultaci s tím, že je přihlášený expres na RR</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Closed">Closed</span></td>
+  <td class="num">0.5</td>
+  <td class="num completed">0.5</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1685</td>
+  <td>Kalkulační varianta KOMISE</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Closed">Closed</span></td>
+  <td class="num">2</td>
+  <td class="num completed">2</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1703</td>
+  <td>Konzultace Pavel - Sprint 04</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Active">Active</span></td>
+  <td class="num">16</td>
+  <td class="num completed">0.25</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1706</td>
+  <td>Dotažení HR ke spuštění</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Active">Active</span></td>
+  <td class="num">14</td>
+  <td class="num completed">7</td>
+  <td class="num remaining">7</td>
+</tr>
+<tr>
+  <td class="item-id">#1723</td>
+  <td>RIč 15029 se nepřihlásil na RR</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Closed">Closed</span></td>
+  <td class="num">0.5</td>
+  <td class="num completed">0.5</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1728</td>
+  <td>RR 24.3.2026</td>
+  <td><span class="type-badge type-Task">Task</span></td>
+  <td><span class="state-badge state-Closed">Closed</span></td>
+  <td class="num">6</td>
+  <td class="num completed">6</td>
+  <td class="num zero">-</td>
+</tr></tbody>
+<tfoot><tr>
+  <td colspan="4" style="padding:12px 16px">CELKEM (12 polozek s hodinami z 38)</td>
+  <td class="num">54</td>
+  <td class="num" style="color:#38a169">16.25</td>
+  <td class="num" style="color:#e53e3e">10</td>
+</tr></tfoot>
+</table>
+  <div class="no-hours">26 polozek nema vyplnene hodiny.</div>
+</div>
+<div class="person-section">
+  <div class="person-section-header">
+    <div class="avatar" style="background:#27AE60">SM</div>
+    <h2>Sviták Martin</h2>
+    <span class="stat-pill blue">11 polozek</span>
+    <span class="stat-pill green">0 h odpracovano</span>
+
+  </div>
+
+  <div class="no-hours">11 polozek nema vyplnene hodiny.</div>
+</div>
+<div class="person-section">
+  <div class="person-section-header">
+    <div class="avatar" style="background:#9B59B6">VJ</div>
+    <h2>Vinš Jan</h2>
+    <span class="stat-pill blue">72 polozek</span>
+    <span class="stat-pill green">8.5 h odpracovano</span>
+
+  </div>
+<table>
+<thead><tr>
+  <th style="width:60px">ID</th><th>Nazev</th>
+  <th style="width:70px">Typ</th><th style="width:90px">Stav</th>
+  <th style="width:75px;text-align:right">Odhad</th>
+  <th style="width:85px;text-align:right">Splneno</th>
+  <th style="width:75px;text-align:right">Zbyva</th>
+</tr></thead>
+<tbody><tr>
+  <td class="item-id">#1541</td>
+  <td>Ceník CZ + SK</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">-</td>
+  <td class="num completed">5</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1562</td>
+  <td>chybně přiřazena ISBN</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Resolved">Resolved</span></td>
+  <td class="num">0.5</td>
+  <td class="num completed">0.5</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1598</td>
+  <td>TS + KV - Povinná data  - Název, podtitul, vazba, formát, počet stran, MOC, MOC ...</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-New">New</span></td>
+  <td class="num">-</td>
+  <td class="num completed">2</td>
+  <td class="num zero">-</td>
+</tr>
+<tr>
+  <td class="item-id">#1807</td>
+  <td>Prosím spěchá: prosím o vytvoření produktů. Knihu jsme schvalovali minulý týden ...</td>
+  <td><span class="type-badge type-Bug">Bug</span></td>
+  <td><span class="state-badge state-Closed">Closed</span></td>
+  <td class="num">-</td>
+  <td class="num completed">1</td>
+  <td class="num zero">-</td>
+</tr></tbody>
+<tfoot><tr>
+  <td colspan="4" style="padding:12px 16px">CELKEM (4 polozek s hodinami z 72)</td>
+  <td class="num">0.5</td>
+  <td class="num" style="color:#38a169">8.5</td>
+  <td class="num" style="color:#e53e3e">-</td>
+</tr></tfoot>
+</table>
+  <div class="no-hours">68 polozek nema vyplnene hodiny.</div>
+</div>
+  <div class="footer">Automaticky vygenerovano GitHub Actions - 04 - Dotahovani Q1 - 2. dubna 2026</div>
 </div>
 </body>
 </html>
