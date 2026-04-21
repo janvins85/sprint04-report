@@ -3,185 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprint Report | 01 - Sprint 20.4. - 3.5.2026</title>
-<style>* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Segoe UI, system-ui, sans-serif; background: #f0f4f8; color: #2d3748; }
-.header { background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%); color: white; padding: 32px 40px; }
-.header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
-.header .subtitle { font-size: 13px; opacity: 0.8; }
-.header .sprint-info { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
-.header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; }
-.container { max-width: 1200px; margin: 0 auto; padding: 28px 20px; }
-.summary-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 14px; margin-bottom: 28px; }
-.summary-card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.1); border-top: 4px solid; }
-.person-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: white; flex-shrink: 0; }
-.person-name { font-weight: 600; font-size: 14px; }
-.item-count { font-size: 11px; color: #718096; }
-.hours-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #f7fafc; }
-.hours-label { font-size: 11px; color: #718096; }
-.hours-value { font-weight: 600; font-size: 14px; }
-.completed { color: #38a169; } .estimated { color: #3182ce; } .remaining { color: #e53e3e; }
-.progress-wrap { margin-top: 10px; }
-.progress-label { display: flex; justify-content: space-between; font-size: 10px; color: #718096; margin-bottom: 3px; }
-.progress-bar { height: 5px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 3px; }
-.total-bar { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.1); display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-.total-bar h2 { font-size: 14px; font-weight: 600; color: #4a5568; min-width: 130px; }
-.total-stat { text-align: center; }
-.total-stat .num { font-size: 26px; font-weight: 700; }
-.total-stat .lbl { font-size: 11px; color: #718096; margin-top: 2px; }
-.divider { width: 1px; height: 44px; background: #e2e8f0; }
-.person-section { background: white; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.1); overflow: hidden; }
-.person-section-header { display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }
-.person-section-header h2 { font-size: 17px; font-weight: 600; flex: 1; }
-.stat-pill { border-radius: 20px; padding: 3px 10px; font-size: 12px; font-weight: 600; }
-.stat-pill.green { background: #f0fff4; border: 1px solid #9ae6b4; color: #276749; }
-.stat-pill.blue { background: #ebf8ff; border: 1px solid #90cdf4; color: #2c5282; }
-.stat-pill.red { background: #fff5f5; border: 1px solid #feb2b2; color: #9b2c2c; }
-table { width: 100%; border-collapse: collapse; }
-th { text-align: left; padding: 9px 14px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #718096; background: #f7fafc; border-bottom: 1px solid #e2e8f0; }
-td { padding: 10px 14px; font-size: 12px; border-bottom: 1px solid #f0f4f8; vertical-align: middle; }
-tr:hover td { background: #f7fafc; }
-.item-id { color: #718096; font-size: 11px; font-family: monospace; }
-.type-badge { display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 4px; font-size: 10px; font-weight: 600; }
-.type-Task { background: #ebf8ff; color: #2c5282; } .type-Bug { background: #fff5f5; color: #9b2c2c; } .type-Story { background: #f0fff4; color: #276749; }
-.state-badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
-.state-Resolved { background: #c6f6d5; color: #22543d; } .state-Closed { background: #e2e8f0; color: #4a5568; }
-.state-Active { background: #bee3f8; color: #2a4365; } .state-New { background: #fefcbf; color: #744210; }
-td.num { text-align: right; font-weight: 600; }
-td.num.zero { color: #cbd5e0; font-weight: 400; }
-tfoot td { font-weight: 700; background: #f7fafc; border-top: 2px solid #e2e8f0; }
-.no-hours { padding: 14px 22px; font-size: 12px; color: #718096; font-style: italic; }
-.footer { text-align: center; padding: 20px; font-size: 11px; color: #a0aec0; }</style>
+<title>Sprint Review | 04 - Dotahovani Q1 | 23.3. - 19.4.2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e}.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:white;padding:36px 40px}.h1{font-size:28px;font-weight:700}.subtitle{font-size:14px;opacity:.7;margin-top:4px}.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:12px}.badge.g{background:rgba(74,222,128,.2);border-color:rgba(74,222,128,.4);color:#4ade80}.badge.y{background:rgba(251,191,36,.2);border-color:rgba(251,191,36,.4);color:#fbbf24}.container{max-width:1300px;margin:0 auto;padding:28px 24px}.kg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:28px}.kc{background:white;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-top:4px solid}.kc.bl{border-top-color:#3b82f6}.kc.gr{border-top-color:#10b981}.kc.am{border-top-color:#f59e0b}.kc.re{border-top-color:#ef4444}.kc.pu{border-top-color:#8b5cf6}.kc.te{border-top-color:#14b8a6}.kl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#6b7280;margin-bottom:8px}.kv{font-size:32px;font-weight:700;color:#1a1a2e;line-height:1}.ks{font-size:12px;color:#9ca3af;margin-top:4px}.st{font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:16px;display:flex;align-items:center;gap:8px}.st::before{content:'';display:block;width:4px;height:20px;background:#3b82f6;border-radius:2px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}.card{background:white;border-radius:12px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:0}.cw{position:relative;height:220px}.pb{margin-bottom:14px}.pl{display:flex;justify-content:space-between;font-size:13px;color:#374151;margin-bottom:5px;font-weight:500}.bar{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden}.fill{height:100%;border-radius:4px}.fg{background:linear-gradient(90deg,#10b981,#34d399)}.fb{background:linear-gradient(90deg,#3b82f6,#60a5fa)}.fa{background:linear-gradient(90deg,#f59e0b,#fbbf24)}.fr{background:linear-gradient(90deg,#ef4444,#f87171)}table{width:100%;border-collapse:collapse}th{text-align:left;padding:8px 12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;background:#f9fafb;border-bottom:2px solid #e5e7eb}td{padding:11px 12px;font-size:13px;border-bottom:1px solid #f3f4f6;vertical-align:middle}.av{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white}.avb{background:#3b82f6}.avg{background:#10b981}.avp{background:#8b5cf6}.ava{background:#f59e0b}.avr{background:#9ca3af}.pc{display:flex;align-items:center;gap:10px}.rp{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600}.rh{background:#d1fae5;color:#065f46}.rm{background:#fef3c7;color:#92400e}.rl{background:#fee2e2;color:#991b1b}.sb{background:linear-gradient(135deg,#1e3a5f,#0f3460);color:white;border-radius:12px;padding:24px;margin-bottom:24px}.sb h3{font-size:16px;font-weight:600;margin-bottom:12px;opacity:.9}.sb p{font-size:14px;line-height:1.7;opacity:.85}.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:24px}.ac{background:white;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-left:4px solid}.an{font-size:12px;font-weight:600;color:#374151;margin-bottom:4px}.anum{font-size:22px;font-weight:700;color:#1a1a2e}.al{font-size:11px;color:#9ca3af}.tl{position:relative;padding-left:20px}.tl::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:#e5e7eb}.ti{position:relative;margin-bottom:16px}.ti::before{content:'';position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;border:2px solid white}.tg::before{background:#10b981}.tb::before{background:#3b82f6}.ta::before{background:#f59e0b}.tt{font-size:13px;font-weight:600;color:#1a1a2e}.td{font-size:12px;color:#6b7280;margin-top:2px}.foot{text-align:center;padding:24px;color:#9ca3af;font-size:12px;margin-top:8px}@media(max-width:768px){.g2{grid-template-columns:1fr}.kg{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
 <div class="header">
-  <h1>Sprint Report - 01 - Sprint 20.4. - 3.5.2026</h1>
-  <div class="subtitle">PowerApps 2026 - CentralniSystem - Azure DevOps</div>
-  <div class="sprint-info">
-    <span class="badge">19 polozek celkem</span>
-    <span class="badge">Aktualizovano: 20. dubna 2026</span>
-  </div>
+<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px">
+<div>
+<div class="subtitle">SPRINT REVIEW &middot; Nakladatelsky dum GRADA</div>
+<h1 class="h1">04 &ndash; Dotahovani Q1</h1>
+<div class="meta">
+<span class="badge">Datum: 23.3. &ndash; 19.4.2026 (28 dni)</span>
+<span class="badge g">174 dokonceno</span>
+<span class="badge y">118 presunuto do Sprint 01</span>
+</div>
+</div>
+<div style="text-align:right;opacity:.6;font-size:12px">Vygenerovano: 21.4.2026<br>Tym: PowerApps 2026</div>
+</div>
 </div>
 <div class="container">
-  <div class="total-bar">
-    <h2>Celkovy prehled</h2>
-    <div class="total-stat"><div class="num" style="color:#3182ce">0.5</div><div class="lbl">Odhadovane h</div></div>
-    <div class="divider"></div>
-    <div class="total-stat"><div class="num" style="color:#38a169">2.5</div><div class="lbl">Odpracovane h</div></div>
-    <div class="divider"></div>
-    <div class="total-stat"><div class="num" style="color:#e53e3e">0</div><div class="lbl">Zbyvajici h</div></div>
-    <div class="divider"></div>
-    <div class="total-stat"><div class="num" style="color:#805ad5">3</div><div class="lbl">Lide v tymu</div></div>
-  </div>
-  <div class="summary-grid">
-<div class="summary-card" style="border-top-color:#4A90D9">
-  <div class="person-header">
-    <div class="avatar" style="background:#4A90D9">KR</div>
-    <div><div class="person-name">Kocsis Richard</div><div class="item-count">6 polozek</div></div>
-  </div>
-  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">0.5 h</span></div>
-  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">2.5 h</span></div>
-  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value ">0 h</span></div>
-  <div class="progress-wrap">
-    <div class="progress-label"><span>Plneni</span><span>100%</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#4A90D9"></div></div>
-  </div>
+<div class="kg">
+<div class="kc bl"><div class="kl">Celkem polozek</div><div class="kv">293</div><div class="ks">Tasks + Bugs + Epics</div></div>
+<div class="kc gr"><div class="kl">Dokonceno</div><div class="kv">174</div><div class="ks">Closed + Resolved</div></div>
+<div class="kc am"><div class="kl">Mira dokonceni</div><div class="kv">60%</div><div class="ks">z celkoveho poctu</div></div>
+<div class="kc re"><div class="kl">Presunuto dal</div><div class="kv">118</div><div class="ks">New + Active &rarr; Sprint 01</div></div>
+<div class="kc pu"><div class="kl">Odhadnuty cas</div><div class="kv">155h</div><div class="ks">OriginalEstimate</div></div>
+<div class="kc te"><div class="kl">Odpracovano</div><div class="kv">89h</div><div class="ks">CompletedWork (log)</div></div>
 </div>
-<div class="summary-card" style="border-top-color:#E67E22">
-  <div class="person-header">
-    <div class="avatar" style="background:#E67E22">NP</div>
-    <div><div class="person-name">Novák Pavel</div><div class="item-count">4 polozek</div></div>
-  </div>
-  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">0 h</span></div>
-  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">0 h</span></div>
-  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value ">0 h</span></div>
-  <div class="progress-wrap">
-    <div class="progress-label"><span>Plneni</span><span>0%</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#E67E22"></div></div>
-  </div>
+<div class="sb">
+<h3>Executive Summary pro management</h3>
+<p>Sprint 04 Dotahovani Q1 probehl od <strong>23. brezna do 19. dubna 2026</strong> (28 dni). Tym zpracoval celkem <strong>293 pracovnich polozek</strong> (144 Tasks, 145 Bugu, 4 Epics) ve ctyrech hlavnich oblastech: Editorial, Helpdesk, NAVI a HR. Celkova mira dokonceni dosahla <strong>60 %</strong> &ndash; 174 polozek bylo uzavreno nebo vyreseno. Zbyvajicich <strong>118 polozek</strong> bylo presunuto do Sprintu 01 (20.4.&ndash;3.5.2026). Nejvetsi objem prace odvedl <strong>Jan Vins</strong> (114 polozek, 88% uspesnost), zejmena v oblasti Helpdesk. Z logovanych hodin bylo odpracovano <strong>89,4 hodin</strong> z odhadnutych 155,5 hodin. Pavel Novak logoval 78h &ndash; 87 % celkoveho zaznamu.</p>
 </div>
-<div class="summary-card" style="border-top-color:#27AE60">
-  <div class="person-header">
-    <div class="avatar" style="background:#27AE60">VJ</div>
-    <div><div class="person-name">Vinš Jan</div><div class="item-count">9 polozek</div></div>
-  </div>
-  <div class="hours-row"><span class="hours-label">Odhad</span><span class="hours-value estimated">0 h</span></div>
-  <div class="hours-row"><span class="hours-label">Odpracovano</span><span class="hours-value completed">0 h</span></div>
-  <div class="hours-row"><span class="hours-label">Zbyva</span><span class="hours-value ">0 h</span></div>
-  <div class="progress-wrap">
-    <div class="progress-label"><span>Plneni</span><span>0%</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#27AE60"></div></div>
-  </div>
+<div class="g2">
+<div class="card"><div class="st">Stav polozek</div><div class="cw"><canvas id="c1"></canvas></div></div>
+<div class="card"><div class="st">Typ polozek</div><div class="cw"><canvas id="c2"></canvas></div></div>
 </div>
-  </div>
-<div class="person-section">
-  <div class="person-section-header">
-    <div class="avatar" style="background:#4A90D9">KR</div>
-    <h2>Kocsis Richard</h2>
-    <span class="stat-pill blue">6 polozek</span>
-    <span class="stat-pill green">2.5 h odpracovano</span>
-
-  </div>
+<div class="g2">
+<div class="card">
+<div class="st">Priorita</div>
+<div class="pb"><div class="pl"><span>Priorita 1 - Kriticka</span><span>65 (22%)</span></div><div class="bar"><div class="fill fr" style="width:22%"></div></div></div>
+<div class="pb"><div class="pl"><span>Priorita 2 - Vysoka</span><span>176 (60%)</span></div><div class="bar"><div class="fill fa" style="width:60%"></div></div></div>
+<div class="pb"><div class="pl"><span>Priorita 3 - Stredni</span><span>27 (9%)</span></div><div class="bar"><div class="fill fb" style="width:9%"></div></div></div>
+<div class="pb"><div class="pl"><span>Priorita 4 - Nizka</span><span>25 (9%)</span></div><div class="bar"><div class="fill fg" style="width:9%"></div></div></div>
+<div style="margin-top:16px;padding:12px;background:#f9fafb;border-radius:8px;font-size:12px;color:#6b7280">80 % polozek melo prioritu 1 nebo 2 &ndash; sprint byl intenzivni.</div>
+</div>
+<div class="card">
+<div class="st">Cas &ndash; odhad vs. skutecnost</div>
+<div class="cw" style="height:160px"><canvas id="c3"></canvas></div>
+<div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
+<div style="padding:10px;background:#eff6ff;border-radius:8px"><div style="font-size:11px;color:#3b82f6;font-weight:600">ODHADNUTO</div><div style="font-size:20px;font-weight:700;color:#1e40af">155,5h</div></div>
+<div style="padding:10px;background:#f0fdf4;border-radius:8px"><div style="font-size:11px;color:#10b981;font-weight:600">ODPRACOVANO</div><div style="font-size:20px;font-weight:700;color:#065f46">89,4h</div></div>
+<div style="padding:10px;background:#fff7ed;border-radius:8px"><div style="font-size:11px;color:#f59e0b;font-weight:600">ZBYVÁ</div><div style="font-size:20px;font-weight:700;color:#92400e">33,5h</div></div>
+</div>
+</div>
+</div>
+<div class="st" style="margin-bottom:12px">Oblast / Kategorie</div>
+<div class="ag">
+<div class="ac" style="border-left-color:#8b5cf6"><div class="an">Editorial</div><div class="anum">122</div><div class="al">42 % uzavreno</div></div>
+<div class="ac" style="border-left-color:#3b82f6"><div class="an">Helpdesk [HD]</div><div class="anum">122</div><div class="al">86 % uzavreno</div></div>
+<div class="ac" style="border-left-color:#f59e0b"><div class="an">NAVI / Uctovnictvi</div><div class="anum">13</div><div class="al">polozek</div></div>
+<div class="ac" style="border-left-color:#10b981"><div class="an">HR / Dochazka</div><div class="anum">6</div><div class="al">polozek</div></div>
+<div class="ac" style="border-left-color:#ef4444"><div class="an">Data Warehouse</div><div class="anum">3</div><div class="al">polozek</div></div>
+<div class="ac" style="border-left-color:#9ca3af"><div class="an">Ostatni</div><div class="anum">27</div><div class="al">polozek</div></div>
+</div>
+<div class="g2">
+<div class="card">
+<div class="st">Bugy</div>
+<div class="pb"><div class="pl"><span>Closed</span><span>104/145 (72%)</span></div><div class="bar"><div class="fill fg" style="width:72%"></div></div></div>
+<div class="pb"><div class="pl"><span>Resolved</span><span>23/145 (16%)</span></div><div class="bar"><div class="fill fb" style="width:16%"></div></div></div>
+<div class="pb"><div class="pl"><span>Active</span><span>1/145 (1%)</span></div><div class="bar"><div class="fill fa" style="width:1%"></div></div></div>
+<div class="pb"><div class="pl"><span>New</span><span>17/145 (12%)</span></div><div class="bar"><div class="fill fr" style="width:12%"></div></div></div>
+<div style="margin-top:12px;padding:10px;background:#f0fdf4;border-radius:8px;font-size:13px;color:#065f46;font-weight:600">88 % bugu dokonceno (Closed + Resolved)</div>
+</div>
+<div class="card">
+<div class="st">Tasky</div>
+<div class="pb"><div class="pl"><span>Closed</span><span>21/144 (15%)</span></div><div class="bar"><div class="fill fg" style="width:15%"></div></div></div>
+<div class="pb"><div class="pl"><span>Resolved</span><span>26/144 (18%)</span></div><div class="bar"><div class="fill fb" style="width:18%"></div></div></div>
+<div class="pb"><div class="pl"><span>Active</span><span>14/144 (10%)</span></div><div class="bar"><div class="fill fa" style="width:10%"></div></div></div>
+<div class="pb"><div class="pl"><span>New</span><span>82/144 (57%)</span></div><div class="bar"><div class="fill fr" style="width:57%"></div></div></div>
+<div style="margin-top:12px;padding:10px;background:#fff7ed;border-radius:8px;font-size:13px;color:#92400e;font-weight:600">33 % tasku dokonceno &ndash; backlog prechazi do Sprint 01</div>
+</div>
+</div>
+<div class="card" style="margin-bottom:24px">
+<div class="st">Vykon tymu &ndash; prehled po osobach</div>
 <table>
-<thead><tr>
-  <th style="width:60px">ID</th><th>Nazev</th>
-  <th style="width:70px">Typ</th><th style="width:90px">Stav</th>
-  <th style="width:75px;text-align:right">Odhad</th>
-  <th style="width:85px;text-align:right">Splneno</th>
-  <th style="width:75px;text-align:right">Zbyva</th>
-</tr></thead>
-<tbody><tr>
-  <td class="item-id">#1598</td>
-  <td>TS + KV - Povinná data  - Název, podtitul, vazba, formát, počet stran, MOC, MOC ...</td>
-  <td><span class="type-badge type-Bug">Bug</span></td>
-  <td><span class="state-badge state-New">New</span></td>
-  <td class="num">-</td>
-  <td class="num completed">2</td>
-  <td class="num zero">-</td>
-</tr>
-<tr>
-  <td class="item-id">#1674</td>
-  <td>Řazení kategorií v tabulce Aktivní poptávka tisku.</td>
-  <td><span class="type-badge type-Bug">Bug</span></td>
-  <td><span class="state-badge state-New">New</span></td>
-  <td class="num">0.5</td>
-  <td class="num completed">0.5</td>
-  <td class="num zero">-</td>
-</tr></tbody>
-<tfoot><tr>
-  <td colspan="4" style="padding:12px 16px">CELKEM (2 polozek s hodinami z 6)</td>
-  <td class="num">0.5</td>
-  <td class="num" style="color:#38a169">2.5</td>
-  <td class="num" style="color:#e53e3e">-</td>
-</tr></tfoot>
+<thead><tr><th>Resitel</th><th style="text-align:center">Celkem</th><th style="text-align:center">Closed</th><th style="text-align:center">Resolved</th><th style="text-align:center">Active</th><th style="text-align:center">New</th><th style="text-align:center">Uspesnost</th><th style="text-align:center">Odhad</th><th style="text-align:center">Odprac.</th></tr></thead>
+<tbody>
+<tr><td><div class="pc"><div class="av avb">JV</div><strong>Vins Jan</strong></div></td><td style="text-align:center"><strong>114</strong></td><td style="text-align:center">89</td><td style="text-align:center">11</td><td style="text-align:center">0</td><td style="text-align:center">14</td><td style="text-align:center"><span class="rp rh">88%</span></td><td style="text-align:center">0,5h</td><td style="text-align:center">1,5h</td></tr>
+<tr><td><div class="pc"><div class="av avg">PN</div><strong>Novak Pavel</strong></div></td><td style="text-align:center"><strong>79</strong></td><td style="text-align:center">8</td><td style="text-align:center">24</td><td style="text-align:center">5</td><td style="text-align:center">42</td><td style="text-align:center"><span class="rp rm">41%</span></td><td style="text-align:center">109,7h</td><td style="text-align:center">77,95h</td></tr>
+<tr><td><div class="pc"><div class="av avp">RK</div><strong>Kocsis Richard</strong></div></td><td style="text-align:center"><strong>63</strong></td><td style="text-align:center">26</td><td style="text-align:center">7</td><td style="text-align:center">8</td><td style="text-align:center">21</td><td style="text-align:center"><span class="rp rm">52%</span></td><td style="text-align:center">44,75h</td><td style="text-align:center">8,75h</td></tr>
+<tr><td><div class="pc"><div class="av ava">MS</div><strong>Svitak Martin</strong></div></td><td style="text-align:center"><strong>25</strong></td><td style="text-align:center">2</td><td style="text-align:center">7</td><td style="text-align:center">2</td><td style="text-align:center">14</td><td style="text-align:center"><span class="rp rl">36%</span></td><td style="text-align:center">0,5h</td><td style="text-align:center">1,2h</td></tr>
+<tr><td><div class="pc"><div class="av avr">-</div><em style="color:#9ca3af">Neprirazeno</em></div></td><td style="text-align:center"><strong>12</strong></td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">12</td><td style="text-align:center"><span class="rp rl">0%</span></td><td style="text-align:center">-</td><td style="text-align:center">-</td></tr>
+</tbody>
 </table>
-  <div class="no-hours">4 polozek nema vyplnene hodiny.</div>
 </div>
-<div class="person-section">
-  <div class="person-section-header">
-    <div class="avatar" style="background:#E67E22">NP</div>
-    <h2>Novák Pavel</h2>
-    <span class="stat-pill blue">4 polozek</span>
-    <span class="stat-pill green">0 h odpracovano</span>
-
-  </div>
-
-  <div class="no-hours">4 polozek nema vyplnene hodiny.</div>
+<div class="card" style="margin-bottom:24px"><div class="st">Distribuce prace &ndash; tym</div><div class="cw" style="height:260px"><canvas id="c4"></canvas></div></div>
+<div class="g2">
+<div class="card">
+<div class="st">Klicova pozorovani</div>
+<div class="tl">
+<div class="ti tg"><div class="tt">Helpdesk &ndash; vyborne vysledky</div><div class="td">105 z 122 HD ticketu uzavreno (86 %). HD backlog presunout do Sprint 01.</div></div>
+<div class="ti tg"><div class="tt">Bugy pod kontrolou</div><div class="td">88 % bugu (127 z 145) Closed nebo Resolved. Vyborny vysledek.</div></div>
+<div class="ti ta"><div class="tt">Editorial backlog roste</div><div class="td">Ze 122 Editorial polozek uzavreno jen 42 %. Velka cast prechazi do Sprint 01.</div></div>
+<div class="ti ta"><div class="tt">Tasky &ndash; nizka uspesnost</div><div class="td">Pouze 33 % tasku dokonceno. Proverit scope a priority pro Sprint 01.</div></div>
+<div class="ti tb"><div class="tt">Pavel Novak &ndash; hlavni prispevatel hodin</div><div class="td">77,95h z 89,4h = 87 % logu hodin. Dobra viditelnost prace.</div></div>
 </div>
-<div class="person-section">
-  <div class="person-section-header">
-    <div class="avatar" style="background:#27AE60">VJ</div>
-    <h2>Vinš Jan</h2>
-    <span class="stat-pill blue">9 polozek</span>
-    <span class="stat-pill green">0 h odpracovano</span>
-
-  </div>
-
-  <div class="no-hours">9 polozek nema vyplnene hodiny.</div>
 </div>
-  <div class="footer">Automaticky vygenerovano GitHub Actions - 01 - Sprint 20.4. - 3.5.2026 - 20. dubna 2026</div>
+<div class="card">
+<div class="st">Doporuceni pro Sprint 01</div>
+<div class="tl">
+<div class="ti tb"><div class="tt">Prioritizovat Editorial tasky</div><div class="td">82 New tasku ceka &ndash; selekce a deprioritizace neurgetnich je nutna.</div></div>
+<div class="ti tb"><div class="tt">Priradit neprirazene polozky</div><div class="td">12 polozek bez resitele &ndash; riziko pro Sprint 01.</div></div>
+<div class="ti tg"><div class="tt">HD tickety jsou ready</div><div class="td">49 aktivnich HD ticketu presunuto do Sprint 01 s prirazenyma resiteli.</div></div>
+<div class="ti ta"><div class="tt">Zlepsit logging hodin</div><div class="td">Kocsis Richard a Svitak Martin maji nizky log vs. pocet polozek.</div></div>
 </div>
+</div>
+</div>
+</div>
+<div class="foot">Sprint 04 &ndash; Dotahovani Q1 &middot; Nakladatelsky dum GRADA &middot; Vygenerovano z Azure DevOps &middot; 21.4.2026</div>
+<script>
+const co={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:12},padding:14,boxWidth:12}}}};
+new Chart(document.getElementById('c1'),{type:'doughnut',data:{labels:['Closed (125)','Resolved (49)','Active (15)','New (103)','Removed (1)'],datasets:[{data:[125,49,15,103,1],backgroundColor:['#10b981','#3b82f6','#f59e0b','#d1d5db','#ef4444'],borderWidth:2,borderColor:'white'}]},options:{...co,cutout:'65%'}});
+new Chart(document.getElementById('c2'),{type:'doughnut',data:{labels:['Bug (145)','Task (144)','Epic (4)'],datasets:[{data:[145,144,4],backgroundColor:['#ef4444','#3b82f6','#8b5cf6'],borderWidth:2,borderColor:'white'}]},options:{...co,cutout:'65%'}});
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Vins Jan','Novak Pavel','Kocsis Richard','Svitak Martin'],datasets:[{label:'Odhad (h)',data:[0.5,109.7,44.75,0.5],backgroundColor:'rgba(59,130,246,0.3)',borderColor:'#3b82f6',borderWidth:2,borderRadius:4},{label:'Odpracovano (h)',data:[1.5,77.95,8.75,1.2],backgroundColor:'rgba(16,185,129,0.7)',borderColor:'#10b981',borderWidth:2,borderRadius:4}]},options:{...co,scales:{y:{beginAtZero:true},x:{grid:{display:false}}}}});
+new Chart(document.getElementById('c4'),{type:'bar',data:{labels:['Vins Jan (114)','Novak Pavel (79)','Kocsis Richard (63)','Svitak Martin (25)','Neprirazeno (12)'],datasets:[{label:'Closed',data:[89,8,26,2,0],backgroundColor:'#10b981',borderRadius:3},{label:'Resolved',data:[11,24,7,7,0],backgroundColor:'#3b82f6',borderRadius:3},{label:'Active',data:[0,5,8,2,0],backgroundColor:'#f59e0b',borderRadius:3},{label:'New',data:[14,42,21,14,12],backgroundColor:'#d1d5db',borderRadius:3}]},options:{...co,scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,beginAtZero:true}}}});
+</script>
 </body>
 </html>
